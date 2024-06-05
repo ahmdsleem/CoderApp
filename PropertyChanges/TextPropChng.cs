@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CoderApp.PropertyChanges
 {
-    public abstract class TextProCh : INotifyPropertyChanged
+    public abstract class TextPropChng : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

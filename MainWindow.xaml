@@ -6,13 +6,15 @@
     xmlns:local="using:CoderApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" SizeChanged="Window_SizeChanged">
+    mc:Ignorable="d" SizeChanged="Window_SizeChanged" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="28"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -23,10 +25,9 @@
         <!--#region TitleBar -->
         <StackPanel x:Name="TitleBarMenu"
                     Grid.Row="0"
-                    Margin="0,0,120,0"
+                    Grid.ColumnSpan="2"
                     Background="{ThemeResource AppBarBackgroundThemeBrush}"
                     Orientation="Horizontal">
-            <Image Source="Assets/code.png"/>
             <TextBlock
                 FontWeight="SemiBold"
                 Margin="10,0,0,0"
@@ -230,23 +231,14 @@
 
             </ListView>
         </StackPanel>
-        <Grid Grid.Row="2" Grid.Column="2" Width="2" Background="Gray">
+        <Grid Grid.Column="2" Grid.Row="2" Grid.RowSpan="3" Width="2" Background="Gray">
 
         </Grid>
-        <StackPanel Grid.Row="2" Grid.Column="3">
-            
-        </StackPanel>
-        <Grid Grid.Row="3" Grid.ColumnSpan="4">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Grid.Row="0"/>
-            <TextBlock Grid.Column="1" Grid.Row="1" />
-        </Grid>
+        <Border Grid.Column="1" Grid.Row="4" Background="red">
+            <TextBlock />
+        </Border>
+        <Border Grid.Column="3" Grid.Row="4" Background="Blue">
+            <TextBlock  />
+        </Border>
     </Grid>
 </Window>

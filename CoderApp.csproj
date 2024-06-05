@@ -13,7 +13,9 @@
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
   <ItemGroup>
+    <Content Remove="Assets\code.ico" />
     <Content Remove="Assets\code.png" />
+    <Content Remove="Assets\code1.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\CodeEditorBlock.xaml" />
