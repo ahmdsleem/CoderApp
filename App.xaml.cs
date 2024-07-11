@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Xaml;
+﻿using CoderApp.Views;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -41,11 +42,11 @@ namespace CoderApp
         /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            m_window = new MainWindow();
+            m_window = new CodeEditorBlock();
             m_window.Activate();
             m_window.ExtendsContentIntoTitleBar = true;
         }
-
+        public Window Window => m_window;
         private Window m_window;
     }
 }

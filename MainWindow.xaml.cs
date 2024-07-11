@@ -1,3 +1,4 @@
+using CoderApp.Implement;
 using CoderApp.Views;
 using Microsoft.UI;
 using Microsoft.UI.Windowing;
@@ -29,6 +30,7 @@ namespace CoderApp
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             this.InitializeComponent();
@@ -66,5 +68,6 @@ namespace CoderApp
         {
 
         }
+
     }
 }

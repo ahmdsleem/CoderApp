@@ -1,3 +1,4 @@
+using CoderApp.Implement;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -23,12 +24,33 @@ namespace CoderApp.Views
     /// </summary>
     public sealed partial class CodeEditorBlock : Window
     {
+        public TextImplement TInt { get; set; }
+
         public CodeEditorBlock()
         {
             this.InitializeComponent();
+
+            DataContext = TextImplement;
+            TInt = new TextImplement();
         }
 
         private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+
+        }
+
+        // To automatically update the list/tab items automatically
+        public void RefreshList()
+        {
+            this.DataContext = null;
+            this.DataContext = TInt;
+        }
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }
+
+        private void NewFile_Click(object sender, RoutedEventArgs e)
         {
 
         }

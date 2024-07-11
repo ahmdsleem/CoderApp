@@ -9,18 +9,225 @@
     mc:Ignorable="d">
 
     <Grid>
-        <NavigationView x:Name="nvSample"
-    IsSettingsVisible="True"
-    IsBackButtonVisible="Visible"
-    IsBackEnabled="False"
-    SelectionChanged="NavigationView_SelectionChanged"
-    Header="Sample Page 1"
-    AlwaysShowHeader="True"
-    PaneTitle="Pane Title"
-    PaneDisplayMode="Left"
-    ExpandedModeThresholdWidth="500"
-    SelectionFollowsFocus="Disabled"
-    IsTabStop="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="28"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="TitleBarMenu"
+            Grid.Row="0"
+            Grid.ColumnSpan="2"
+            Background="{ThemeResource AppBarBackgroundThemeBrush}"
+            Orientation="Horizontal">
+            <TextBlock
+        FontWeight="SemiBold"
+        Margin="10,0,0,0"
+        VerticalAlignment="Center"
+        Text="{x:Bind Title}"/>
+        </StackPanel>
+        <StackPanel x:Name="MenuBar"
+             Grid.Row="1"
+             Grid.Column="1"
+             Grid.ColumnSpan="3"
+             Background="{ThemeResource AppBarBackgroundThemeBrush}">
+            <!--#region MenuBar-->
+            <MenuBar FontSize="12">
+                <!--#region File List-->
+                <MenuBarItem Title="File">
+                    <MenuFlyoutItem Text="New Text"/>
+                    <MenuFlyoutItem x:Name="NewFile" Text="New File"
+                             Click="NewFile_Click"/>
+                    <MenuFlyoutItem Text="New Window"/>
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="Open File"/>
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="Open Folder"/>
+                    <MenuFlyoutItem Text="Save"/>
+                    <MenuFlyoutItem Text="Test Add New Tab"/>
+                    <MenuFlyoutItem Text="Save As..."/>
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutSubItem Text="Share">
+
+                    </MenuFlyoutSubItem>
+                    <MenuFlyoutSubItem Text="Open Recent">
+
+                    </MenuFlyoutSubItem>
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="Exit" Click="Exit_Click"/>
+                </MenuBarItem>
+                <!--#endregion-->
+                <!--#region Edit List-->
+                <MenuBarItem Title="Edit">
+                    <MenuFlyoutItem Text="Undo"/>
+                    <MenuFlyoutItem Text="Redo"/>
+                    <MenuFlyoutItem Text="Cut"/>
+                    <MenuFlyoutItem Text="Copy"/>
+                    <MenuFlyoutItem Text="Paste"/>
+                    <MenuFlyoutItem Text="Find"/>
+                    <MenuFlyoutItem Text="Replace"/>
+                    <MenuFlyoutItem Text="Toggle Line Command"/>
+                    <MenuFlyoutItem Text="Toggle Block Command"/>
+                </MenuBarItem>
+                <!--#endregion-->
+                <!--#region View List-->
+                <MenuBarItem Title="View">
+                    <MenuFlyoutItem Text="Command Palette..."/>
+                    <MenuFlyoutItem Text="Open View..."/>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutSubItem Text="Appearance">
+
+                    </MenuFlyoutSubItem>
+                    <MenuFlyoutSubItem Text="Editor Layout">
+
+                    </MenuFlyoutSubItem>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutItem Text="Explorer"/>
+                    <MenuFlyoutItem Text="Search"/>
+                    <MenuFlyoutItem Text="Source Control"/>
+                    <MenuFlyoutItem Text="Run"/>
+                    <MenuFlyoutItem Text="Extensions"/>
+                    <MenuFlyoutItem Text="Testing"/>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutItem Text="Problems"/>
+                    <MenuFlyoutItem Text="Output"/>
+                    <MenuFlyoutItem Text="Debug Console"/>
+                    <MenuFlyoutItem Text="Terminal"/>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutItem Text="Word Wrap"/>
+                    <!--MenuFlyoutSeparator/>
+             <RadioMenuFlyoutItem Text="Landscape" GroupName="OrientationGroup"/>
+             <RadioMenuFlyoutItem Text="Portrait" GroupName="OrientationGroup" IsChecked="True"/>
+             <MenuFlyoutSeparator/-->
+                </MenuBarItem>
+                <!--#endregion-->
+                <!--#region Go List-->
+                <MenuBarItem Title="Go">
+                    <MenuFlyoutItem Text="Back"/>
+                    <MenuFlyoutItem Text="Forward"/>
+                    <MenuFlyoutItem Text="Last Edit Location"/>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutSubItem Text="Switch Editor">
+
+                    </MenuFlyoutSubItem>
+                    <MenuFlyoutSubItem Text="Switch Group">
+
+                    </MenuFlyoutSubItem>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutItem Text="Go to File..."/>
+                    <MenuFlyoutItem Text="Go to Symbol in Workspace..."/>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutItem Text="Go to Symol in Editor..."/>
+                    <MenuFlyoutItem Text="Go to Definition"/>
+                    <MenuFlyoutItem Text="Go to Declaration"/>
+                    <MenuFlyoutItem Text="Go to Type Definition"/>
+                    <MenuFlyoutItem Text="Go to Implementation"/>
+                    <MenuFlyoutItem Text="Go to References"/>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutItem Text="Go to Line/Column..."/>
+                    <MenuFlyoutItem Text="Go to Bracket"/>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutItem Text="Next Proplem"/>
+                    <MenuFlyoutItem Text="Previous Problem"/>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutItem Text="Next Change"/>
+                    <MenuFlyoutItem Text="Previous Change"/>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutItem Text="Problems"/>
+                    <MenuFlyoutItem Text="Output"/>
+                    <MenuFlyoutItem Text="Debug Console"/>
+                    <MenuFlyoutItem Text="Terminal"/>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutItem Text="Word Wrap"/>
+                </MenuBarItem>
+                <!--#endregion-->
+                <!--#region Run List-->
+                <MenuBarItem Title="Run">
+                    <MenuFlyoutItem Text="Start Debugging"/>
+                    <MenuFlyoutItem Text="Run Without Debugging"/>
+                    <MenuFlyoutItem Text="Stop Debugging"/>
+                    <MenuFlyoutItem Text="Restart Debugging"/>
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="Open Configurations"/>
+                    <MenuFlyoutItem Text="Add Configuration..."/>
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="Step Over"/>
+                    <MenuFlyoutItem Text="Step Into"/>
+                    <MenuFlyoutItem Text="Step Out"/>
+                    <MenuFlyoutItem Text="Continue"/>
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="Toggle Breakpoint"/>
+                    <MenuFlyoutItem Text="New Breakpoint"/>
+                    <MenuFlyoutSeparator/>
+                    <MenuFlyoutItem Text="Enable All Breakpoints"/>
+                    <MenuFlyoutItem Text="Disable All Breakpionts"/>
+                    <MenuFlyoutItem Text="Remove All Breakpoints"/>
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="Install Additional Debuggers..."/>
+                </MenuBarItem>
+                <!--#endregion-->
+                <!--#region Terminal List-->
+                <MenuBarItem Title="Terminal">
+                    <MenuFlyoutItem Text="New Terminal"/>
+                    <MenuFlyoutItem Text="Split Terminal"/>
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="Run Task..."/>
+                    <MenuFlyoutItem Text="Run Build Task..."/>
+                    <MenuFlyoutItem Text="Run Active File"/>
+                    <MenuFlyoutItem Text="Run Selected Text"/>
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="Show Running Tasks"/>
+                    <MenuFlyoutItem Text="Restart Running Tasks..."/>
+                    <MenuFlyoutItem Text="Terminate Task..."/>
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="Configure Tasks..."/>
+                    <MenuFlyoutItem Text="Configure Dfault Build Task..."/>
+                </MenuBarItem>
+                <!--#endregion-->
+                <!--#region Help List-->
+                <MenuBarItem Title="Help">
+                    <MenuFlyoutItem Text="Welcome"/>
+                    <MenuFlyoutItem Text="Show All Commands"/>
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="Documentation"/>
+                    <MenuFlyoutItem Text="Editor Playground"/>
+                    <MenuFlyoutItem Text="Show Release Notes"/>
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="Keyboard Shortcuts"/>
+                    <MenuFlyoutItem Text="tutorials"/>
+                    <MenuFlyoutItem Text="Join Us"/>
+                    <MenuFlyoutItem Text="Report Issue"/>
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="View License"/>
+                    <MenuFlyoutItem Text="Privacy Statement"/>
+                    <MenuFlyoutItem Text="Check for Update"/>
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutItem Text="About"/>
+                </MenuBarItem>
+                <!--#endregion-->
+            </MenuBar>
+            <!--#endregion-->
+        </StackPanel>
+        <NavigationView Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" x:Name="nvSample"
+                        IsSettingsVisible="True"
+                        IsBackButtonVisible="Visible"
+                        IsBackEnabled="False"
+                        SelectionChanged="NavigationView_SelectionChanged"
+                        Header="Sample Page 1"
+                        AlwaysShowHeader="True"
+                        PaneTitle="Pane Title"
+                        PaneDisplayMode="Left"
+                        ExpandedModeThresholdWidth="500"
+                        SelectionFollowsFocus="Disabled"
+                        IsTabStop="False">
 
             <NavigationView.MenuItems>
                 <NavigationViewItem Content="Menu Item1" Tag="SamplePage1" x:Name="SamplePage1Item">
